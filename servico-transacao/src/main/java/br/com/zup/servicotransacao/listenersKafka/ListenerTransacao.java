@@ -6,7 +6,6 @@ import br.com.zup.servicotransacao.domain.transacao.TransacaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
-import org.springframework.validation.annotation.Validated;
 
 @Component
 public class ListenerTransacao {
@@ -15,7 +14,7 @@ public class ListenerTransacao {
     public TransacaoRepository transacaoRepository;
 
     @KafkaListener(groupId = "${spring.kafka.consumer.group-id}", topics = "${spring.kafka.topic.transactions}")
-    public void ouvir(@Validated EventoTransacao eventoTransacao) {
+    public void ouvir(EventoTransacao eventoTransacao) {
         System.out.println(eventoTransacao.toString());
         Transacao transacao = eventoTransacao.converte();
         transacaoRepository.save(transacao);
