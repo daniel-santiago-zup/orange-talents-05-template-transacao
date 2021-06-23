@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.kafka.support.converter.JsonMessageConverter;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 
-@SpringBootApplication(exclude = {org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration.class})
+@SpringBootApplication
 public class ServicoTransacaoApplication {
 
 	public static void main(String[] args) {
